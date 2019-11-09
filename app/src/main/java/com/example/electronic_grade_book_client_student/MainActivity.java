@@ -1,6 +1,8 @@
 package com.example.electronic_grade_book_client_student;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,15 +20,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textView;
+//    private TextView textView;
     public static String tekst;
+    private ListView listViewStudentsList;
+    private List<Student> students;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = findViewById(R.id.listViewId);
+//        textView = (TextView)findViewById(R.id.listViewId);
+
+        listViewStudentsList = findViewById(R.id.listViewProductList);
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://192.168.1.15:8080/")
@@ -41,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 if(!response.isSuccessful()){
                     tekst=tekst+response.code();
 //                    List<Flight> list = response.body();
-//                    listView.setAdapter(new Ada));
                     return;
                 }
                 List<Student> students = response.body();
@@ -54,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
                             +"pass: "+student.getPassword();
 
                     System.out.println(tekst);
-                    textView.append(tekst);
+//                    textView.append(tekst);
+                    listViewStudentsList.setAdapter(new StudentListAdapter(getApplicationContext(),students));
                 }
 //                System.out.println(students.toString());
             }

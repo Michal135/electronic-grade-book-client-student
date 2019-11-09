@@ -1,13 +1,20 @@
 package com.example.electronic_grade_book_client_student.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public abstract class Person {
 
-
+    @SerializedName("login")
     private String login;
+    @SerializedName("password")
     private String password;
+    @SerializedName("name")
     private String name;
+    @SerializedName("surmane")
     private String surname;
+    @SerializedName("ID")
     private int ID;
+    @SerializedName("role")
     private String role;
 
 //    public Person(int ID, String login, String password, String name, String surname) {

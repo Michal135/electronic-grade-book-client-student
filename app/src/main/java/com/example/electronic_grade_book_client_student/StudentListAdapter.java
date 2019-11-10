@@ -20,7 +20,7 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
     private List<Student> students;
 
     public StudentListAdapter(Context context, List<Student> students){
-        super(context,R.layout.content_main,students);
+        super(context,R.layout.row_in_students_list,students);
         this.context = context;
         this.students = students;
 
@@ -32,7 +32,7 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        convertView = layoutInflater.inflate(R.layout.content_main,parent,false);
+        convertView = layoutInflater.inflate(R.layout.row_in_students_list,parent,false);
 
         Student student = students.get(position);
         TextView textView = (TextView) convertView.findViewById(R.id.textViewName);

@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 28
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.electronic_grade_book_client_student"
         minSdkVersion 14
-        targetSdkVersion 29
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -29,4 +29,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation  'com.android.support:design:28.1.0'
+    implementation 'com.android.support:appcompat-v7:28.2.0'
+
 }

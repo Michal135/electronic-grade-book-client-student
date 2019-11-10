@@ -6,6 +6,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.electronic_grade_book_client_student.model.Student;
 
@@ -29,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        toolbar.setTitle("Witaj");
+
 
 //        textView = (TextView)findViewById(R.id.listViewId);
 

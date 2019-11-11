@@ -3,26 +3,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/drawyer_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
     >
 
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
 
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:menu="@menu/drawyer_menu">
-
-    </com.google.android.material.navigation.NavigationView>
-
-
+    />
 
     <ListView
         android:id="@+id/listViewProductList"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="100dp"
+
+        />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawyer_menu"/>
+
+
+
+
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

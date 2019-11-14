@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import org.springframework.http.HttpBasicAuthentication;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
@@ -26,6 +28,7 @@ import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -90,11 +93,14 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Message doInBackground(Void... params) {
-            final String url = getString(R.string.URL )+"/login";
+            final String url = getString(R.string.URL )+"/student";
 
             // Populate the HTTP Basic Authentitcation header with the username and password
             HttpAuthentication authHeader = new HttpBasicAuthentication(username, password);
+            System.out.println(username+": user");
+            System.out.println(password+": pass");
             HttpHeaders requestHeaders = new HttpHeaders();
+
             requestHeaders.setAuthorization(authHeader);
             requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 
@@ -105,7 +111,17 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 // Make the network request
                 Log.d(TAG, url);
-//                ResponseEntity<Message> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<Object>(requestHeaders), Message.class);
+                ResponseEntity<Student> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<Object>(requestHeaders), Student.class);
+//                ResponseEntity<Object[]> responseEntity = restTemplate.getForEntity(url, Object[].class);
+//                Object[] objects = responseEntity.getBody();
+//                MediaType contentType = responseEntity.getHeaders().getContentType();
+//                HttpStatus statusCode = responseEntity.getStatusCode();
+//
+//                for (Object student: objects)
+//                System.out.println(student.toString());
+
+                System.out.println(response.toString());
+
                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent);
 //                return response.getBody();

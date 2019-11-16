@@ -6,12 +6,12 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-
+import retrofit2.http.Headers;
 
 
 public interface service {
 
-    @GET("/allStudents")
+    @GET("/student")
     Call<List<Student>> getStudents();
 
 }

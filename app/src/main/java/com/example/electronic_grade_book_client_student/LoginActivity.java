@@ -14,21 +14,24 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.http.HttpAuthentication;
 import org.springframework.http.HttpBasicAuthentication;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -91,6 +94,8 @@ public class LoginActivity extends AppCompatActivity {
             this.password = editText.getText().toString();
         }
 
+
+
         @Override
         protected Message doInBackground(Void... params) {
             final String url = getString(R.string.URL )+"/student";
@@ -111,7 +116,9 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 // Make the network request
                 Log.d(TAG, url);
-                ResponseEntity<Student> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<Object>(requestHeaders), Student.class);
+//                ResponseEntity<Student> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<Object>(requestHeaders), Student.class);
+                ResponseEntity<Student[]> response2 = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<Object>(requestHeaders), Student[].class);
+
 //                ResponseEntity<Object[]> responseEntity = restTemplate.getForEntity(url, Object[].class);
 //                Object[] objects = responseEntity.getBody();
 //                MediaType contentType = responseEntity.getHeaders().getContentType();
@@ -120,7 +127,20 @@ public class LoginActivity extends AppCompatActivity {
 //                for (Object student: objects)
 //                System.out.println(student.toString());
 
-                System.out.println(response.toString());
+//                System.out.println(response.toString());
+                System.out.println(response2.toString());
+                Student[] students = response2.getBody();
+                for(Student student:students){
+                    String tekst = "ROLE: "+student.getROLE()
+                            + "login: " +student.getLogin()
+                            +" name: " +student.getName()
+                            +" surname: " +student.getSurname()
+                            +" id: " +student.getID()
+                            +"pass: "+student.getPassword();
+
+                    System.out.println(tekst);
+                }
+
 
                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent);

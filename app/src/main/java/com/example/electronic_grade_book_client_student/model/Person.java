@@ -12,8 +12,8 @@ public abstract class Person {
     private String name;
     @SerializedName("surmane")
     private String surname;
-    @SerializedName("ID")
-    private int ID;
+    @SerializedName("id")
+    private int id;
     @SerializedName("role")
     private String role;
 
@@ -36,11 +36,11 @@ public abstract class Person {
     }
 
     public int getID() {
-        return ID;
+        return id;
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+        this.id = ID;
     }
 
     public String getLogin() {
@@ -90,7 +90,7 @@ public abstract class Person {
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", ID=" + ID +
+                ", ID=" + id +
                 ", ROLE='" + role + '\'' +
                 '}';
     }

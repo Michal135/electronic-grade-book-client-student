@@ -54,45 +54,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setCheckedItem(R.id.Myclass);
         }
 
-
-//        textView = (TextView)findViewById(R.id.listViewId);
-
-//        listViewStudentsList = findViewById(R.id.listViewProductList);
-//
-//        Retrofit.Builder builder = new Retrofit.Builder()
-//                .baseUrl("http://192.168.1.15:8080/")
-//                .addConverterFactory(GsonConverterFactory.create());
-//        Retrofit retrofit = builder.build();
-//        service Retroservice = retrofit.create(service.class);
-//
-//        Call<List<Student>> call = Retroservice.getStudents();
-//        call.enqueue(new Callback<List<Student>>() {
-//            @Override
-//            public void onResponse(Call<List<Student>> call, Response<List<Student>> response) {
-//                if(!response.isSuccessful()){
-//                    tekst=tekst+response.code();
-//                    return;
-//                }
-//                List<Student> students = response.body();
-//                for(Student student:students){
-//                    String tekst = "ROLE: "+student.getROLE()
-//                            + "login: " +student.getLogin()
-//                            +" name: " +student.getName()
-//                            +" surname: " +student.getSurname()
-//                            +" id: " +student.getID()
-//                            +"pass: "+student.getPassword();
-//
-//                    System.out.println(tekst);
-//                    listViewStudentsList.setAdapter(new StudentListAdapter(getApplicationContext(),students));
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Student>> call, Throwable t) {
-//                System.out.println(t.getMessage());
-//            }
-//        });
-
     }
 
 

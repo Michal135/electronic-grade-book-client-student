@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.electronic_grade_book_client_student.config.ConfigClass;
 import com.example.electronic_grade_book_client_student.model.Student;
 
 
@@ -44,7 +45,7 @@ public class MyClassFragment extends Fragment {
 
 //        listViewStudentsList = findViewById(R.id.listViewProductList);
 
-        OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor("Slogin","SPassword")).build();
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor(ConfigClass.getUser(),ConfigClass.getPassword())).build();
 
         Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://192.168.1.15:8080/").client(okHttpClient).addConverterFactory(GsonConverterFactory.create());
 

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.electronic_grade_book_client_student.config.ConfigClass;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -105,6 +106,9 @@ public class LoginActivity extends AppCompatActivity {
             System.out.println(username+": user");
             System.out.println(password+": pass");
             HttpHeaders requestHeaders = new HttpHeaders();
+
+            ConfigClass.setUser(username);
+            ConfigClass.setPassword(password);
 
             requestHeaders.setAuthorization(authHeader);
             requestHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));

@@ -1,5 +1,7 @@
 package com.example.electronic_grade_book_client_student;
 
+import com.example.electronic_grade_book_client_student.model.Student;
+
 import java.util.ArrayList;
 import java.util.List;
 

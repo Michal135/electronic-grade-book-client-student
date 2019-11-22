@@ -32,13 +32,20 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        convertView = layoutInflater.inflate(R.layout.row_in_students_list,parent,false);
+        View row = layoutInflater.inflate(R.layout.row_in_students_list,parent,false);
 
         Student student = students.get(position);
-        TextView textView = (TextView) convertView.findViewById(R.id.textViewName);
+
+        TextView textView = (TextView) row.findViewById(R.id.textViewName);
         textView.setText(student.getName());
 
-        return convertView;
+        TextView textView1 = (TextView) row.findViewById(R.id.teviewSurname);
+        textView1.setText(student.getSurname());
+
+        TextView textView2 = (TextView) row.findViewById(R.id.textViewClass);
+//        textView1.setText(student.ge);
+
+        return row;
 
     }
 }

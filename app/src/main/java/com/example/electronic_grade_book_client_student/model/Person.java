@@ -10,27 +10,12 @@ public abstract class Person {
     private String password;
     @SerializedName("name")
     private String name;
-    @SerializedName("surmane")
+    @SerializedName("surname")
     private String surname;
     @SerializedName("id")
     private int id;
     @SerializedName("role")
     private String role;
-
-//    public Person(int ID, String login, String password, String name, String surname) {
-//        this.ID = ID;
-//        this.login = login;
-//        this.password = password;
-//        this.name = name;
-//        this.surname = surname;
-//    }
-
-//    public Person(String login, String password, String name, String surname) {
-//        this.login = login;
-//        this.password = password;
-//        this.name = name;
-//        this.surname = surname;
-//    }
 
     public Person() {
     }

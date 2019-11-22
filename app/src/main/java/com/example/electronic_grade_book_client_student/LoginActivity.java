@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.electronic_grade_book_client_student.config.ConfigClass;
+import com.example.electronic_grade_book_client_student.model.Student;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -120,7 +121,6 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 // Make the network request
                 Log.d(TAG, url);
-//                ResponseEntity<Student> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<Object>(requestHeaders), Student.class);
                 ResponseEntity<Student[]> response2 = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<Object>(requestHeaders), Student[].class);
 
 //                ResponseEntity<Object[]> responseEntity = restTemplate.getForEntity(url, Object[].class);

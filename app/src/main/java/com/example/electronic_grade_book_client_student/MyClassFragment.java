@@ -74,7 +74,6 @@ public class MyClassFragment extends Fragment {
                             +"pass: "+student.getPassword();
 
                     System.out.println(tekst);
-//                    listView.setAdapter(new StudentListAdapter(getContext(),students));
                     listView.setAdapter(new StudentListAdapter(getContext(),students));
                 }
             }

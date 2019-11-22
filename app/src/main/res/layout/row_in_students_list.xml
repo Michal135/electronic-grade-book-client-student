@@ -2,18 +2,57 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+    android:layout_height="wrap_content"
+    >
 
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@android:mipmap/sym_def_app_icon"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <TextView
         android:id="@+id/textViewName"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp" />
+        android:gravity="center_vertical"
+        android:height="30dp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:text="imie"
 
+        />
+    <TextView
+        android:id="@+id/teviewSurname"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
+        android:height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:text="nazwisko"
 
+        />
+
+        <TextView
+            android:id="@+id/textViewClass"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold"
+            android:height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="klasa"
+
+            />
+
+</LinearLayout>
 </LinearLayout>

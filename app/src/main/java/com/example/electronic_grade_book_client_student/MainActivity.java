@@ -2,9 +2,7 @@ package com.example.electronic_grade_book_client_student;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,16 +11,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.electronic_grade_book_client_student.model.Student;
+import com.example.electronic_grade_book_client_student.MyClass.MyClassFragment;
+import com.example.electronic_grade_book_client_student.Teachers.TeachersFragment;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -64,8 +55,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new MyClassFragment()).commit();
                 break;
             case R.id.Teachers:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new TeachersFragment()).commit();
+                break;
+            case R.id.News:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NewsFragment()).commit();
                 break;
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

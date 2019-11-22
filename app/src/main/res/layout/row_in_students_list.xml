@@ -7,6 +7,8 @@
 
 
     <ImageView
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@android:mipmap/sym_def_app_icon"
@@ -16,43 +18,33 @@
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
     <TextView
         android:id="@+id/textViewName"
         android:gravity="center_vertical"
-        android:height="30dp"
+        android:height="50dp"
+        android:layout_marginLeft="5dp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
+        android:layout_gravity="left"
         android:text="imie"
 
         />
     <TextView
         android:id="@+id/teviewSurname"
         android:gravity="center_vertical"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="5dp"
         android:textStyle="bold"
-        android:height="30dp"
+        android:height="50dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
+        android:layout_gravity="left"
         android:text="nazwisko"
 
         />
 
-        <TextView
-            android:id="@+id/textViewClass"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="15dp"
-            android:textStyle="bold"
-            android:height="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:text="klasa"
 
-            />
 
 </LinearLayout>
 </LinearLayout>

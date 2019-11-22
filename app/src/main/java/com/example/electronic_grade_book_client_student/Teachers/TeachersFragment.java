@@ -1,36 +1,34 @@
-package com.example.electronic_grade_book_client_student;
+package com.example.electronic_grade_book_client_student.Teachers;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.electronic_grade_book_client_student.BasicAuthInterceptor;
+import com.example.electronic_grade_book_client_student.MyClass.StudentListAdapter;
+import com.example.electronic_grade_book_client_student.MyClass.service;
+import com.example.electronic_grade_book_client_student.R;
+import com.example.electronic_grade_book_client_student.RetroserviceConfig;
 import com.example.electronic_grade_book_client_student.config.ConfigClass;
 import com.example.electronic_grade_book_client_student.model.Student;
+import com.example.electronic_grade_book_client_student.model.Teacher;
 
-
-import org.codehaus.jackson.map.introspect.BasicClassIntrospector;
-
-import java.io.IOException;
 import java.util.List;
 
-
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MyClassFragment extends Fragment {
+public class TeachersFragment extends Fragment {
 
     public static String tekst;
     private ListView listViewProductList;
@@ -40,8 +38,8 @@ public class MyClassFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.my_class_fragment,container,false);
-        final ListView listView = view.findViewById(R.id.listViewProductList);
+        View view = inflater.inflate(R.layout.teachers_fragment,container,false);
+        final ListView listViewteachers = view.findViewById(R.id.listViewTeachersList);
 
 //        listViewStudentsList = findViewById(R.id.listViewProductList);
 
@@ -50,36 +48,35 @@ public class MyClassFragment extends Fragment {
         Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://192.168.1.15:8080/").client(okHttpClient).addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
-        service Retroservice = retrofit.create(service.class);
-//        service Retroservice = new RetroserviceConfig().init();
-        Call<List<Student>> call = Retroservice.getStudents();
+        teachersService Retroservice = retrofit.create(teachersService.class);
+        Call<List<Teacher>> call = Retroservice.getTeachers();
         System.out.println("CALL: " + call);
-        System.out.println(Retroservice.getStudents());
-        call.enqueue(new Callback<List<Student>>() {
+        System.out.println(Retroservice.getTeachers());
+        call.enqueue(new Callback<List<Teacher>>() {
             @Override
-            public void onResponse(Call<List<Student>> call, Response<List<Student>> response) {
+            public void onResponse(Call<List<Teacher>> call, Response<List<Teacher>> response) {
                 if(!response.isSuccessful()){
                     tekst=tekst+response.code();
                 }
                 if(response.code()==401){
                     System.out.println("nie masz dostepu");
                 }
-                List<Student> students = response.body();
-                for(Student student:students){
-                    String tekst = "ROLE: "+student.getROLE()
-                            + "login: " +student.getLogin()
-                            +" name: " +student.getName()
-                            +" surname: " +student.getSurname()
-                            +" id: " +student.getID()
-                            +"pass: "+student.getPassword();
+                List<Teacher> teachers = response.body();
+                for(Teacher teacher:teachers){
+                    String tekst = "ROLE: "+teacher.getROLE()
+                            + "login: " +teacher.getLogin()
+                            +" name: " +teacher.getName()
+                            +" surname: " +teacher.getSurname()
+                            +" id: " +teacher.getID()
+                            +"pass: "+teacher.getPassword();
 
                     System.out.println(tekst);
-                    listView.setAdapter(new StudentListAdapter(getContext(),students));
+                    listViewteachers.setAdapter(new TeachersListAdapter(getContext(),teachers));
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Student>> call, Throwable t) {
+            public void onFailure(Call<List<Teacher>> call, Throwable t) {
                 System.out.println(t.getMessage());
             }
         });

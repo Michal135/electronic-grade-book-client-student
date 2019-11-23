@@ -1,29 +1,26 @@
-package com.example.electronic_grade_book_client_student;
+package com.example.electronic_grade_book_client_student.MyClass;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.electronic_grade_book_client_student.BasicAuthInterceptor;
+import com.example.electronic_grade_book_client_student.R;
+import com.example.electronic_grade_book_client_student.RetroserviceConfig;
 import com.example.electronic_grade_book_client_student.config.ConfigClass;
 import com.example.electronic_grade_book_client_student.model.Student;
 
 
-import org.codehaus.jackson.map.introspect.BasicClassIntrospector;
-
-import java.io.IOException;
 import java.util.List;
 
 
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +38,7 @@ public class MyClassFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.my_class_fragment,container,false);
-        final ListView listView = view.findViewById(R.id.listViewProductList);
+        final ListView listView = view.findViewById(R.id.myClassAllPeopleList);
 
 //        listViewStudentsList = findViewById(R.id.listViewProductList);
 
@@ -74,7 +71,6 @@ public class MyClassFragment extends Fragment {
                             +"pass: "+student.getPassword();
 
                     System.out.println(tekst);
-//                    listView.setAdapter(new StudentListAdapter(getContext(),students));
                     listView.setAdapter(new StudentListAdapter(getContext(),students));
                 }
             }

@@ -1,7 +1,6 @@
 package com.example.electronic_grade_book_client_student.Teachers;
 
 import android.content.Context;
-import android.graphics.drawable.Icon;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,8 +30,6 @@ public class TeachersListAdapter extends ArrayAdapter<Teacher> {
 
     }
 
-
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -47,9 +44,10 @@ public class TeachersListAdapter extends ArrayAdapter<Teacher> {
         TextView textView1 = (TextView) row.findViewById(R.id.textviewTeacherSurname);
         textView1.setText(teacher.getSurname());
 
-
+        //trzeba to bedzie w przyszlosci jakos inaczej przerobic - inne obrazki to na pewno, a moze jakos inaczej je wczytywac?
+        ImageView imageView = (ImageView) row.findViewById(R.id.teacherIcon);
+        imageView.setImageResource(R.drawable.ic_launcher_background);
 
         return row;
-
     }
 }

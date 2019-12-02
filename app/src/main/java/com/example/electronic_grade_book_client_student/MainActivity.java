@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.electronic_grade_book_client_student.MyClass.MyClassFragment;
 import com.example.electronic_grade_book_client_student.Teachers.TeachersFragment;
+import com.example.electronic_grade_book_client_student.grades.GradesFragment;
 import com.example.electronic_grade_book_client_student.news.NewsFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -60,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.News:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NewsFragment()).commit();
+                break;
+            case R.id.Grades:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new GradesFragment()).commit();
                 break;
 
         }

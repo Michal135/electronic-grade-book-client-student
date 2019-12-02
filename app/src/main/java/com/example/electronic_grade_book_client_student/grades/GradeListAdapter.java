@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 
 import com.example.electronic_grade_book_client_student.R;
 import com.example.electronic_grade_book_client_student.model.Grade;
-import com.example.electronic_grade_book_client_student.model.Student;
 
 import java.util.List;
 
@@ -40,15 +39,20 @@ public class GradeListAdapter extends ArrayAdapter<Grade> {
 
         TextView textView = (TextView) row.findViewById(R.id.subjectName);
         String gradeString = Integer.toString(grade.getGrade());
-        textView.setText(gradeString);
+        textView.setText("Ocena: "+gradeString);
 
         TextView textView1 = (TextView) row.findViewById(R.id.grade);
-        textView1.setText(grade.getSubject().getSubjectName());
+        textView1.setText("Przedmiot: "+grade.getSubject().getSubjectName());
 
-//        TextView textView2 = (TextView) row.findViewById(R.id.textViewClass);
-//        textView2.setText(student.getStudentClass());
+        TextView textView2 = (TextView) row.findViewById(R.id.date_of_obtaining_grade);
+//        textView2.setText("Data uzyskania oceny: "+grade.getDateOfIssue());
+
+        String dateConverted = grade.getDateOfIssue()
+                .replaceAll("T"," ")
+                .substring(0,19);
+
+        textView2.setText("Data uzyskania oceny: "+dateConverted); //
 
         return row;
-
     }
 }

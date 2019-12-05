@@ -15,6 +15,7 @@ import com.example.electronic_grade_book_client_student.MyClass.MyClassFragment;
 import com.example.electronic_grade_book_client_student.Teachers.TeachersFragment;
 import com.example.electronic_grade_book_client_student.grades.GradesFragment;
 import com.example.electronic_grade_book_client_student.news.NewsFragment;
+import com.example.electronic_grade_book_client_student.radarCharts.RadarChartsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -64,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.Grades:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new GradesFragment()).commit();
+                break;
+            case R.id.Radar_charts:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new RadarChartsFragment()).commit();
                 break;
 
         }

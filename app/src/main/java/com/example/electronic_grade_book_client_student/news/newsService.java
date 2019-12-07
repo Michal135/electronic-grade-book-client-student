@@ -1,7 +1,6 @@
 package com.example.electronic_grade_book_client_student.news;
 
 import com.example.electronic_grade_book_client_student.model.News;
-import com.example.electronic_grade_book_client_student.model.Teacher;
 
 import java.util.List;
 

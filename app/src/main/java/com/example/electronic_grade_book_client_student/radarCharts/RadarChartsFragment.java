@@ -12,7 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 
+import com.example.electronic_grade_book_client_student.BasicAuthInterceptor;
 import com.example.electronic_grade_book_client_student.R;
+
+import com.example.electronic_grade_book_client_student.additionalClasses.GradesAverage;
+import com.example.electronic_grade_book_client_student.config.ConfigClass;
 
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.data.RadarData;
@@ -21,14 +25,22 @@ import com.github.mikephil.charting.data.RadarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RadarChartsFragment extends Fragment {
 
     private RadarChart chart;
 
-    RadarData radarData;
-    RadarDataSet radarDataSet;
-    ArrayList radarEntries;
+    private RadarData radarData;
+    private RadarDataSet radarDataSet;
+    private ArrayList radarEntries;
 
     @Nullable
     @Override
@@ -36,23 +48,53 @@ public class RadarChartsFragment extends Fragment {
         View view = inflater.inflate(R.layout.radar_charts_fragment,container,false);
         chart = view.findViewById(R.id.radar_chart);
 
-        getEntries();
-        radarDataSet = new RadarDataSet(radarEntries, "");
-        radarData = new RadarData(radarDataSet);
-        chart.setData(radarData);
-        radarDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-        radarDataSet.setValueTextColor(Color.BLACK);
-        radarDataSet.setValueTextSize(18f);
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor(ConfigClass.getUser(),ConfigClass.getPassword())).build();
+
+        Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://192.168.1.15:8080/").client(okHttpClient).addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+        radarChartsService Retroservice = retrofit.create(radarChartsService.class);
+
+        Call<List<GradesAverage>> call = Retroservice.getGradesAverageForStudent(ConfigClass.getUser());
+        System.out.println("CALL: " + call);
+        System.out.println(Retroservice.getGradesAverageForStudent(ConfigClass.getUser()));
+        call.enqueue(new Callback<List<GradesAverage>>() {
+            @Override
+            public void onResponse(Call<List<GradesAverage>> call, Response<List<GradesAverage>> response) {
+                if(!response.isSuccessful()){
+                    System.out.println(response.code());
+                }
+                if(response.code()==401){
+                    System.out.println("nie masz dostepu");
+                }
+                List<GradesAverage> allAverages = response.body();
+                addAllEntries(allAverages);
+
+                        radarDataSet = new RadarDataSet(radarEntries, "");
+                        radarData = new RadarData(radarDataSet);
+                        chart.setData(radarData);
+                        radarDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
+                        radarDataSet.setValueTextColor(Color.BLACK);
+                        radarDataSet.setValueTextSize(18f);
+
+                        chart.onFinishTemporaryDetach();
+            }
+
+            @Override
+            public void onFailure(Call<List<GradesAverage>> call, Throwable t) {
+                System.out.println(t.getMessage());
+            }
+        });
 
         return view;
     }
-    private void getEntries() {
+
+    private void addAllEntries(List<GradesAverage> allAverages){
         radarEntries = new ArrayList<>();
-        radarEntries.add(new RadarEntry(0));
-        radarEntries.add(new RadarEntry(1));
-        radarEntries.add(new RadarEntry(2));
-        radarEntries.add(new RadarEntry(3));
-        radarEntries.add(new RadarEntry(4));
-        radarEntries.add(new RadarEntry(5));
+        for (GradesAverage averageFromOneSubject : allAverages){
+            radarEntries.add(new RadarEntry((float) averageFromOneSubject.getAverage(),averageFromOneSubject.getSubjectName()));
+        }
+
     }
+
 }

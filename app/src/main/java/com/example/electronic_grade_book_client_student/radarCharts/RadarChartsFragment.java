@@ -106,6 +106,7 @@ public class RadarChartsFragment extends Fragment {
                 radarData.setDrawValues(false);
 
                 chart.setData(radarData);
+                chart.invalidate();
 
             }
 

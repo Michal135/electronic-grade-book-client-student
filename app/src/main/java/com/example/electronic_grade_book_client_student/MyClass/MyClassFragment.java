@@ -40,7 +40,7 @@ public class MyClassFragment extends Fragment {
         View view = inflater.inflate(R.layout.my_class_fragment,container,false);
         final ListView listView = view.findViewById(R.id.myClassAllPeopleList);
 
-//        listViewStudentsList = findViewById(R.id.listViewProductList);
+        getActivity().setTitle("MyClass");
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor(ConfigClass.getUser(),ConfigClass.getPassword())).build();
 

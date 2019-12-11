@@ -54,6 +54,8 @@ public class RadarChartsFragment extends Fragment {
         final View view = inflater.inflate(R.layout.radar_charts_fragment, container, false);
         chart = view.findViewById(R.id.radar_chart);
 
+        getActivity().setTitle("RadarCharts");
+
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor(ConfigClass.getUser(), ConfigClass.getPassword())).build();
 
         Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://192.168.1.15:8080/").client(okHttpClient).addConverterFactory(GsonConverterFactory.create());

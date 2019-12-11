@@ -4,19 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/loginPageBackground"
+    >
 
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="Grade Book"
+        android:textColor="@color/white"
+        android:textSize="70sp"
+        android:padding="10dp"
+        android:fontFamily="@font/font"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginTop="276dp"
+        android:layout_marginTop="220dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="login"
+        android:inputType="textPersonName"
+        android:background="@drawable/edittext_bg"
+        android:padding="10dp"
+        android:textSize="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,23 +42,55 @@
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="310dp"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
+        android:background="@drawable/edittext_bg"
+        android:padding="10dp"
+        android:textSize="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/signInButton"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginTop="436dp"
+        android:layout_marginTop="400dp"
         android:text="Zaloguj się"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textSize="16sp"
+        app:backgroundTint="@color/loginPageFormBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="484dp"
+        app:fontFamily="@font/font"
+        android:gravity="center"
+        android:padding="0dp"
+        android:text="Nie posiadasz konta??"
+        android:textSize="30sp"
+        android:textColor="@color/color_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="534dp"
+        android:gravity="center"
+        android:padding="0dp"
+        android:text="@string/registration_text"
+        android:textSize="14sp"
+        android:textColor="@color/color_black"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

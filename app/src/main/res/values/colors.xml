@@ -3,4 +3,12 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="loginPageBackground">#2aa869</color>
+    <color name="loginPageFormBackground">#266947</color>
+    <color name="white">#ffffff</color>
+    <color name="buttonTextColour">#15471a</color>
+    <color name="color_gray">#424242</color>
+    <color name="color_black">#000000</color>
+
+
 </resources>

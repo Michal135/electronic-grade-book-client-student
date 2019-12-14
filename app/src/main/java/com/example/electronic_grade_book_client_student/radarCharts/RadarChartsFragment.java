@@ -54,7 +54,7 @@ public class RadarChartsFragment extends Fragment {
         final View view = inflater.inflate(R.layout.radar_charts_fragment, container, false);
         chart = view.findViewById(R.id.radar_chart);
 
-        getActivity().setTitle("RadarCharts");
+        getActivity().setTitle(R.string.grades_average);
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor(ConfigClass.getUser(), ConfigClass.getPassword())).build();
 

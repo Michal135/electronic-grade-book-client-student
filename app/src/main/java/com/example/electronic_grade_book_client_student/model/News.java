@@ -8,12 +8,15 @@ public class News {
 
     private String author;
 
+    private String priority;
+
     public News() {
     }
 
-    public News(String description, String author) {
+    public News(String description, String author, String priority) {
         this.description = description;
         this.author = author;
+        this.priority = priority;
     }
 
     public String getAuthor() {
@@ -40,5 +43,12 @@ public class News {
         this.description = description;
     }
 
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
 }
 

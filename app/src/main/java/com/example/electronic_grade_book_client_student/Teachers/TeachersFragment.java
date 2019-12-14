@@ -38,7 +38,7 @@ public class TeachersFragment extends Fragment {
         View view = inflater.inflate(R.layout.teachers_fragment,container,false);
         final ListView listViewteachers = view.findViewById(R.id.listViewTeachersList);
 
-        getActivity().setTitle("Teachers");
+        getActivity().setTitle(R.string.teachers);
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor(ConfigClass.getUser(),ConfigClass.getPassword())).build();
         Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://192.168.1.15:8080/").client(okHttpClient).addConverterFactory(GsonConverterFactory.create());

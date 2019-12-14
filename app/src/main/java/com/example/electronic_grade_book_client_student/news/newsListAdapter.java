@@ -46,6 +46,15 @@ public class newsListAdapter extends ArrayAdapter<News> {
         TextView textView1 = (TextView) row.findViewById(R.id.textViewNewsAuthor);
         textView1.setText("Autor: "+oneNews.getAuthor());
 
+        if(oneNews.getPriority().equals("Normal")){
+            ImageView imageView = (ImageView) row.findViewById(R.id.news_icon);
+            imageView.setImageResource(R.drawable.ic_news_priority_normal);
+        }
+        else{
+            ImageView imageView = (ImageView) row.findViewById(R.id.news_icon);
+            imageView.setImageResource(R.drawable.ic_news_priority_high);
+        }
+
         return row;
     }
 }

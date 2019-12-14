@@ -25,9 +25,7 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
         super(context, R.layout.row_in_students_list,students);
         this.context = context;
         this.students = students;
-
     }
-
 
 
     @NonNull
@@ -43,9 +41,6 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
 
         TextView textView1 = (TextView) row.findViewById(R.id.teviewSurname);
         textView1.setText(student.getSurname());
-
-//        TextView textView2 = (TextView) row.findViewById(R.id.textViewClass);
-//        textView2.setText(student.getStudentClass());
 
         if(student.getSEX().equals("MALE")){
         ImageView imageView = (ImageView) row.findViewById(R.id.userIcon);

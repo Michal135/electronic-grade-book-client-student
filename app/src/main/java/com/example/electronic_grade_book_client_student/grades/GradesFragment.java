@@ -43,7 +43,7 @@ public class GradesFragment extends Fragment {
         View view = inflater.inflate(R.layout.grades_fragment,container,false);
         final ListView listView = view.findViewById(R.id.studentGradesList);
 
-        getActivity().setTitle("Grades");
+        getActivity().setTitle(R.string.grades_history);
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor(ConfigClass.getUser(),ConfigClass.getPassword())).build();
         Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://192.168.1.15:8080/").client(okHttpClient).addConverterFactory(GsonConverterFactory.create());

@@ -40,7 +40,7 @@ public class MyClassFragment extends Fragment {
         View view = inflater.inflate(R.layout.my_class_fragment,container,false);
         final ListView listView = view.findViewById(R.id.myClassAllPeopleList);
 
-        getActivity().setTitle("MyClass");
+        getActivity().setTitle(R.string.my_class);
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor(ConfigClass.getUser(),ConfigClass.getPassword())).build();
 
@@ -49,7 +49,7 @@ public class MyClassFragment extends Fragment {
         Retrofit retrofit = builder.build();
         service Retroservice = retrofit.create(service.class);
 //        service Retroservice = new RetroserviceConfig().init();
-        Call<List<Student>> call = Retroservice.getStudents();
+        Call<List<Student>> call = Retroservice.getStudentsInClassByLogin(ConfigClass.getUser());
         System.out.println("CALL: " + call);
         System.out.println(Retroservice.getStudents());
         call.enqueue(new Callback<List<Student>>() {

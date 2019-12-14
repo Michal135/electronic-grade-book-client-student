@@ -5,11 +5,11 @@
 
 
     <group android:checkableBehavior="single">
-    <item android:id="@+id/Myclass" android:title="Myclass"/>
-    <item android:id="@+id/Teachers" android:title="Teachers"/>
-    <item android:id="@+id/News" android:title="News"/>
-    <item android:id="@+id/Grades" android:title="Grades"/>
-    <item android:id="@+id/Radar_charts" android:title="Radar Charts"/>
+    <item android:id="@+id/News" android:title="@string/news"/>
+    <item android:id="@+id/Grades" android:title="@string/grades_history"/>
+    <item android:id="@+id/Radar_charts" android:title="@string/grades_average"/>
+    <item android:id="@+id/Myclass" android:title="@string/my_class"/>
+    <item android:id="@+id/Teachers" android:title="@string/teachers"/>
     </group>
 
 

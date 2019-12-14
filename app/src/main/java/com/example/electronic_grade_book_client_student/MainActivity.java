@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         if(savedInstanceState==null){
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new MyClassFragment()).commit();
-        navigationView.setCheckedItem(R.id.Myclass);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NewsFragment()).commit();
+        navigationView.setCheckedItem(R.id.News);
         }
 
     }

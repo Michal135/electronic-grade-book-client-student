@@ -16,6 +16,8 @@ public abstract class Person {
     private int id;
     @SerializedName("role")
     private String role;
+    @SerializedName("sex")
+    private String SEX;
 
     public Person() {
     }
@@ -66,6 +68,14 @@ public abstract class Person {
 
     public void setROLE(String ROLE) {
         this.role = ROLE;
+    }
+
+    public String getSEX() {
+        return SEX;
+    }
+
+    public void setSEX(String SEX) {
+        this.SEX = SEX;
     }
 
     @Override

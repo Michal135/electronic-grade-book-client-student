@@ -5,13 +5,26 @@
     android:layout_height="wrap_content"
     >
 
-
+    <ImageView
+        android:id="@+id/news_icon"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        />
 
     <LinearLayout
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        >
         <TextView
             android:id="@+id/textViewNews"
             android:gravity="center_vertical"
@@ -19,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="left"
+            android:textColor="@color/color_black"
             android:text="To jest jakis przykladowy tekst w ktorym będą wypisane ważne informacje szkolne"
 
             />
@@ -31,6 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="left"
+            android:textColor="@color/color_black"
             android:text="Autor"
 
             />

@@ -6,11 +6,15 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 
 public interface service {
 
     @GET("/student")
     Call<List<Student>> getStudents();
+
+    @GET("/studentsInMyClass/{login}")
+    Call<List<Student>> getStudentsInClassByLogin(@Path("login") String login);
 
 }

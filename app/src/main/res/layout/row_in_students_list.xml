@@ -7,18 +7,21 @@
 
 
     <ImageView
-        android:layout_marginLeft="10dp"
+        android:id="@+id/userIcon"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@android:mipmap/sym_def_app_icon"
         />
 
     <LinearLayout
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp">
     <TextView
         android:id="@+id/textViewName"
         android:gravity="center_vertical"

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,9 +25,7 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
         super(context, R.layout.row_in_students_list,students);
         this.context = context;
         this.students = students;
-
     }
-
 
 
     @NonNull
@@ -43,10 +42,14 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
         TextView textView1 = (TextView) row.findViewById(R.id.teviewSurname);
         textView1.setText(student.getSurname());
 
-//        TextView textView2 = (TextView) row.findViewById(R.id.textViewClass);
-//        textView2.setText(student.getStudentClass());
-
+        if(student.getSEX().equals("MALE")){
+        ImageView imageView = (ImageView) row.findViewById(R.id.userIcon);
+        imageView.setImageResource(R.drawable.ic_male_user_icon);
+        }
+        else{
+            ImageView imageView = (ImageView) row.findViewById(R.id.userIcon);
+            imageView.setImageResource(R.drawable.ic_female_user_icon);
+        }
         return row;
-
     }
 }

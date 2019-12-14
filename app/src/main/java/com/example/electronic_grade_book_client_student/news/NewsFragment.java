@@ -41,7 +41,7 @@ public class NewsFragment extends Fragment {
         View view = inflater.inflate(R.layout.news_fragment,container,false);
         final ListView listView = view.findViewById(R.id.newsList);
 
-        getActivity().setTitle("News");
+        getActivity().setTitle(R.string.news);
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new BasicAuthInterceptor(ConfigClass.getUser(),ConfigClass.getPassword())).build();
 
